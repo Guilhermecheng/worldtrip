@@ -1,47 +1,95 @@
-import { Flex, Box, useBreakpointValue, Text } from "@chakra-ui/react";
+import { Flex, Icon, useBreakpointValue, Text, Box } from "@chakra-ui/react";
 import Image from "next/image";
 
-import vidaNoturna from '../../../public/images/vidanoturna.svg';
+import vidanoturna from '../../../public/images/vidanoturna.svg';
 import praia from '../../../public/images/praia.svg';
 import moderno from '../../../public/images/moderno.svg';
 import classico from '../../../public/images/classico.svg';
 import emais from '../../../public/images/emais.svg';
 
-export function TravelTypes() {
-    const isMobile = useBreakpointValue({
-        base: true,
-        md: false,
-    })
+import { GoPrimitiveDot } from 'react-icons/go';
+
+
+interface TravelTypesProps {
+    isMobile?: boolean;
+}
+
+const travelTypeImages = [
+    {
+        name: 'vidanoturna',
+        text: 'Vida Noturna',
+        image: vidanoturna,
+    },
+    {
+        name: 'praia',
+        text: 'Praia',
+        image: praia,
+    },
+    {
+        name: 'moderno',
+        text: 'Moderno',
+        image: moderno,
+    },
+    {
+        name: 'classico',
+        text: 'Clássico',
+        image: classico,
+    },
+    {
+        name: 'emais',
+        text: 'E mais...',
+        image: emais,
+    },
+]
+
+export function TravelTypes({ isMobile }: TravelTypesProps) {
 
     return (
         <Flex
             alignItems="center"
-            justifyContent="space-between"
+            justifyContent={ isMobile ? "center" :  "space-between" }
             maxWidth="72.5em"
             w="100%"
-            my="20"
+            mt={ isMobile ? "10" : "24"}
+            mb={ isMobile ? "10" : "20"}
             px="4"
+            flexWrap={ isMobile ? "wrap" :  "nowrap" }
         >
-                <Flex direction="column" alignItems="center">
-                    <Image src={ vidaNoturna } />
-                    <Text>Vida Noturna</Text>
-                </Flex>
-                <Flex direction="column" alignItems="center">
-                    <Image src={ praia } />
-                    <Text>Praia</Text>
-                </Flex>
-                <Flex direction="column" alignItems="center">
-                    <Image src={ moderno } />
-                    <Text>Moderno</Text>
-                </Flex>            
-                <Flex direction="column" alignItems="center">
-                    <Image src={ classico } />
-                    <Text>Clássico</Text>
-                </Flex>
-                <Flex direction="column" alignItems="center">
-                    <Image src={ emais } />
-                    <Text>E mais...</Text>
-                </Flex>
+            {
+                travelTypeImages.map((type) => {
+                    return (
+                        <Flex 
+                            direction={isMobile ?  "row" : "column"}
+                            alignItems="center"
+                            id={ type.name }
+                            mx={ isMobile ? "6" : "0" }
+                        >
+                            { isMobile ? (
+                                <Flex
+                                    mr="2"
+                                >
+                                    <Icon as={ GoPrimitiveDot } color="#FFBA08"  />
+                                </Flex>
+                            ) : (
+                                <Box
+                                    mb="6"
+                                >
+                                    <Image src={ type.image } alt={ type.text } />
+                                </Box>
+                            ) }
+
+                            <Text 
+                                fontWeight="semibold"
+                                color="gray.600"
+                                fontSize="lg"
+                                letterSpacing="1px"
+                            >
+                                { type.text }
+                            </Text>
+                        </Flex>
+                    )
+                })
+            }
       </Flex>
     )
 }

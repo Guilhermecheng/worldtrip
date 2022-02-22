@@ -1,15 +1,13 @@
-import { Flex, Grid, Heading, Text, useBreakpointValue } from '@chakra-ui/react';
+import { Flex, Grid, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 
 import AirplaneSvg from '../../../public/images/Airplane.svg';
 
+interface MainBannerProps {
+    isMobile?: boolean;
+}
 
-export function MainBanner() {
-
-    const isMobile = useBreakpointValue({
-        base: true,
-        md: false,
-    })
+export function MainBanner({ isMobile }: MainBannerProps) {
 
     return (
         <Flex
@@ -22,7 +20,7 @@ export function MainBanner() {
             alignItems="center"
             justifyContent="center"
             px="4" // CONTAINER INSIDE PADDING
-            mb="10"
+            // mb="10"
         >
             <Grid
                 templateColumns={!isMobile ? "repeat(2, 1fr)" : "1fr"}
@@ -33,10 +31,19 @@ export function MainBanner() {
                 flexDirection="column"
                 justifyContent="center"
             >
-                <Heading as="h1">
-                    5 Continentes, infinitas possibilidades
+                <Heading 
+                    as="h1"
+                    fontSize={["2xl", "3xl", "4xl"]}
+                    fontWeight="semibold"
+                    letterSpacing="1px"
+                >
+                    5 Continentes, infinitas possibilidades.
                 </Heading>
-                <Text>
+                <Text
+                    mt="8"
+                    fontSize={["md", "lg" ,"xl"]}
+                    fontWeight="light"
+                >
                     Chegou a hora de tirar do papel a viagem que você sempre sonhou
                 </Text>
             </Flex>

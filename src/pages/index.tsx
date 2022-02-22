@@ -1,4 +1,4 @@
-import { Flex, Divider } from '@chakra-ui/react';
+import { Flex, Divider, useBreakpointValue } from '@chakra-ui/react';
 import type { NextPage } from 'next'
 import Header from '../components/Header';
 
@@ -10,19 +10,31 @@ import { ContinentsSlides } from '../components/homecomp/ContinentsSlides';
 
 
 const Home: NextPage = () => {
+
+  const isMobile = useBreakpointValue({
+      base: true,
+      md: false,
+  })
+  
   return (
     <Flex
       direction="column"
       alignItems="center"
     >
-      <Header />
+      {/* Header mobile props are different (breakpointvalue is sm) */}
+      <Header /> 
 
-      <MainBanner />
+      <MainBanner isMobile={ isMobile }  />
 
-        <TravelTypes />
-        <Divider maxWidth="90px" bg="gray.900" />
+      <TravelTypes isMobile={ isMobile }  />
+      
+      <Divider
+        maxWidth="90px"
+        borderColor="gray.600"
+        borderWidth="1px"
+      />
 
-        <ContinentsSlides />
+      <ContinentsSlides isMobile={ isMobile } />
 
       
     </Flex>
