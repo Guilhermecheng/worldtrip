@@ -5,12 +5,13 @@ import { Box } from '@chakra-ui/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export function Slides() {
     return (
         <Swiper
             // install Swiper modules
-            modules={[Navigation]}
+            modules={[Pagination]}
             spaceBetween={50}
             slidesPerView={3}
             navigation

@@ -43,39 +43,42 @@ const travelTypeImages = [
 ]
 
 export function TravelTypes({ isMobile }: TravelTypesProps) {
+    console.log(`essa porra é ${isMobile}`)
 
     return (
         <Flex
             alignItems="center"
-            justifyContent={ isMobile ? "center" :  "space-between" }
+            justifyContent={{base: "center", md: "space-between"}}
             maxWidth="72.5em"
             w="100%"
-            mt={ isMobile ? "10" : "24"}
-            mb={ isMobile ? "10" : "20"}
+            mt={{base: "10", md: "24"}}
+            mb={{base: "10", md: "20"}}
             px="4"
-            flexWrap={ isMobile ? "wrap" :  "nowrap" }
+            flexWrap="wrap"
         >
             {
                 travelTypeImages.map((type) => {
                     return (
                         <Flex 
-                            direction={isMobile ?  "row" : "column"}
+                            direction={{base: "row", md: "column"}}
                             alignItems="center"
                             id={ type.name }
-                            mx={ isMobile ? "6" : "0" }
+                            mx={{base: "6", md: "0"}}
                         >
                             { isMobile ? (
                                 <Flex
                                     mr="2"
+                                    mb="0"
                                 >
                                     <Icon as={ GoPrimitiveDot } color="#FFBA08"  />
                                 </Flex>
                             ) : (
-                                <Box
-                                    mb="6"
+                                <Flex
+                                    mb={{md: "6", base: "0"}} // estilizaçao deste comp n é substituida pelo "if" do isMobile.. necessário este formato para responsividade funcionar corretamente
+                                    mr={{base: "2", md: "0"}}
                                 >
                                     <Image src={ type.image } alt={ type.text } />
-                                </Box>
+                                </Flex>
                             ) }
 
                             <Text 

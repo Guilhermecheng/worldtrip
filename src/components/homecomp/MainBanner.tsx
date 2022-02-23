@@ -12,7 +12,7 @@ export function MainBanner({ isMobile }: MainBannerProps) {
     return (
         <Flex
             w="100vw"
-            h={!isMobile ? "335px" : "200px"}
+            h={{md: "335px", base: "200px"}}
             backgroundImage="url('/images/Background.svg')"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
@@ -23,7 +23,7 @@ export function MainBanner({ isMobile }: MainBannerProps) {
             // mb="10"
         >
             <Grid
-                templateColumns={!isMobile ? "repeat(2, 1fr)" : "1fr"}
+                templateColumns={{ md: "repeat(2, 1fr)", base:  "1fr"}}
                 maxWidth="72.5em" // MAX CONTAINER WIDTH
                 color="#F5F8FA"
             >

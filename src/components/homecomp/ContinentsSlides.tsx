@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex, Heading, Box } from '@chakra-ui/react';
 import Link from 'next/link';
 import { Slides } from '../Slides';
 
@@ -11,7 +11,7 @@ export function ContinentsSlides({ isMobile }: ContinentsSlidesProps) {
     return (
         <Flex
             direction="column"
-            my={ isMobile ? "8" : "12"}
+            my={ !!isMobile ? "8" : "12"}
             alignItems="center"
             fontSize="2xl"
             color="gray.600"
@@ -36,7 +36,12 @@ export function ContinentsSlides({ isMobile }: ContinentsSlidesProps) {
                 <a>Europa</a>  
             </Link>
 
-            <Slides />
+            <Box
+                maxWidth={1160}
+
+            >
+                <Slides />            
+            </Box> 
         </Flex>
     )
 }

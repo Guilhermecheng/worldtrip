@@ -15,6 +15,9 @@ const Home: NextPage = () => {
       base: true,
       md: false,
   })
+
+  console.log("reiniciei")
+  console.log(isMobile)
   
   return (
     <Flex
