@@ -62,7 +62,7 @@ export function TravelTypes({ isMobile }: TravelTypesProps) {
                         <Flex 
                             direction={{base: "row", md: "column"}}
                             alignItems="center"
-                            id={ type.name }
+                            key={ type.name }
                             mx={{base: "6", md: "0"}}
                         >
                             { isMobile ? (

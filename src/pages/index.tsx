@@ -1,5 +1,5 @@
 import { Flex, Divider, useBreakpointValue } from '@chakra-ui/react';
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Header from '../components/Header';
 
 import Image from 'next/image';
@@ -8,8 +8,21 @@ import { MainBanner } from '../components/homecomp/MainBanner';
 import { TravelTypes } from '../components/homecomp/TravelTypes';
 import { ContinentsSlides } from '../components/homecomp/ContinentsSlides';
 
+import { getPrismicClient } from '../services/prismic';
 
-const Home: NextPage = () => {
+
+interface ContinentProps {
+    slugs: string[];
+    continent_name: string;
+    continent_subtitle: string;
+    continent_banner_image: string;
+}
+
+interface HomeProps {
+  Allcontinents: ContinentProps[];
+}
+
+export default function Home({ Allcontinents }: HomeProps): JSX.Element  {
 
   const isMobile = useBreakpointValue({
       base: true,
@@ -17,7 +30,9 @@ const Home: NextPage = () => {
   })
 
   console.log("reiniciei")
-  console.log(isMobile)
+
+  
+  console.log(Allcontinents)
   
   return (
     <Flex
@@ -37,13 +52,40 @@ const Home: NextPage = () => {
         borderWidth="1px"
       />
 
-      <ContinentsSlides isMobile={ isMobile } />
-
-      
+      <ContinentsSlides isMobile={ isMobile } Allcontinents={ Allcontinents } />
     </Flex>
 
     
   )
 }
 
-export default Home
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const response = await prismic.getAllByType("continent", {
+    // predicates: [
+    //   Prismic.predicate.at("my.continent.type", "continent"),      
+    // ],    
+    // fetchLinks: ["continent.continent_name", "continent.continent_main_image"],
+    pageSize: 10,
+  })
+
+  console.log(response)
+  const Allcontinents = response.map(continent => {
+
+    return {
+      slugs: continent.slugs,
+      continent_name: continent.data.continent_name,
+      continent_subtitle: continent.data.continent_subtitle,
+      continent_banner_image: continent.data.continent_banner_image.url,
+    }
+  })
+  console.log(Allcontinents)
+
+
+  return {
+    props: {
+      Allcontinents,
+    }
+  }
+}

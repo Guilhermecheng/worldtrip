@@ -2,11 +2,19 @@ import { Flex, Heading, Box } from '@chakra-ui/react';
 import Link from 'next/link';
 import { Slides } from '../Slides';
 
-interface ContinentsSlidesProps {
-    isMobile?: boolean;
+interface ContinentProps {
+    slugs: string[];
+    continent_name: string;
+    continent_subtitle: string;
+    continent_banner_image: string;
 }
 
-export function ContinentsSlides({ isMobile }: ContinentsSlidesProps) {
+interface ContinentsSlidesProps {
+    isMobile?: boolean;
+    Allcontinents: ContinentProps[]
+}
+
+export function ContinentsSlides({ isMobile, Allcontinents }: ContinentsSlidesProps) {
 
     return (
         <Flex
@@ -32,15 +40,18 @@ export function ContinentsSlides({ isMobile }: ContinentsSlidesProps) {
                 Então escolha seu continente
             </Heading>
 
-            <Link href={`/continent/europe`}>
+            {/* <Link href={`/continent/europe`}>
                 <a>Europa</a>  
-            </Link>
+            </Link> */}
 
             <Box
+                w="100vw"
                 maxWidth={1160}
+                px="2"
+                pt="8"
 
             >
-                <Slides />            
+                <Slides Allcontinents={ Allcontinents }  />
             </Box> 
         </Flex>
     )
