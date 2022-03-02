@@ -1,6 +1,7 @@
 .swiper-button-prev:after,
 .swiper-button-next:after {
     color: #ffba08;
+    padding: 2rem 1rem;
 }
 
 .swiper-pagination-bullets > span {

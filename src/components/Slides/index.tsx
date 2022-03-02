@@ -36,7 +36,7 @@ export function Slides({ Allcontinents }: SlidesProps) {
         >
             { Allcontinents.map( continent => {
                 return (
-                    <SwiperSlide>
+                    <SwiperSlide key={ continent.continent_name }>
                         <Link href={`/continent/${continent.slugs[0]}`}>
 
                             <Flex
@@ -52,6 +52,7 @@ export function Slides({ Allcontinents }: SlidesProps) {
                             >
                                     <Heading
                                         as="h1"
+                                        fontSize="5xl"
                                     >
                                         { continent.continent_name }
                                     </Heading>
@@ -59,7 +60,8 @@ export function Slides({ Allcontinents }: SlidesProps) {
                                     <Heading
                                         as="h3"
                                         color="gray.300"
-                                        fontSize="28"
+                                        fontSize="2xl"
+                                        mt="4"
                                     >
                                         { continent.continent_subtitle }
                                     </Heading>
@@ -69,21 +71,6 @@ export function Slides({ Allcontinents }: SlidesProps) {
                 )
             }) }
             
-
-            <SwiperSlide>
-                Slide 2
-
-            </SwiperSlide>
-
-            <SwiperSlide>
-                Slide 3
-
-            </SwiperSlide>
-
-            <SwiperSlide>
-                Slide 4
-
-            </SwiperSlide>
         </Swiper>
     );
 }
