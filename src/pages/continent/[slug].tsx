@@ -2,6 +2,7 @@ import { GetStaticProps, GetStaticPropsContext } from "next";
 import { Flex } from "@chakra-ui/react";
 
 import { ParsedUrlQuery } from 'querystring'
+import { Footer } from "../../components/Footer";
 
 interface IParams extends ParsedUrlQuery {
     slug: string
@@ -14,8 +15,13 @@ interface ContinentProps {
 export default function Continent({ continent }: ContinentProps) {
 
     return (
-        <Flex>
+        <Flex
+            direction="column"
+        >
             <h1>{ continent }</h1>
+
+
+            <Footer />
         </Flex>
     )
 }

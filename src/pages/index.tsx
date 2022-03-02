@@ -9,6 +9,7 @@ import { TravelTypes } from '../components/homecomp/TravelTypes';
 import { ContinentsSlides } from '../components/homecomp/ContinentsSlides';
 
 import { getPrismicClient } from '../services/prismic';
+import { Footer } from '../components/Footer';
 
 
 interface ContinentProps {
@@ -53,6 +54,8 @@ export default function Home({ Allcontinents }: HomeProps): JSX.Element  {
       />
 
       <ContinentsSlides isMobile={ isMobile } Allcontinents={ Allcontinents } />
+
+      <Footer />
     </Flex>
 
     
