@@ -24,8 +24,8 @@ export function MainBanner({ isMobile }: MainBannerProps) {
         >
             <Grid
                 templateColumns={{ md: "repeat(2, 1fr)", base:  "1fr"}}
-                maxWidth="72.5em" // MAX CONTAINER WIDTH
-                color="#F5F8FA"
+                maxWidth={1160} // MAX CONTAINER WIDTH
+                color="white"
             >
             <Flex
                 flexDirection="column"

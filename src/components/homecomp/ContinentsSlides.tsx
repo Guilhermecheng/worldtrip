@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Slides } from '../Slides';
 
 interface ContinentProps {
-    slugs: string[];
+    uid: string;
     continent_name: string;
     continent_subtitle: string;
     continent_banner_image: string;

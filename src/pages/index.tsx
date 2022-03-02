@@ -1,8 +1,6 @@
 import { Flex, Divider, useBreakpointValue } from '@chakra-ui/react';
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetStaticProps } from 'next'
 import Header from '../components/Header';
-
-import Image from 'next/image';
 
 import { MainBanner } from '../components/homecomp/MainBanner';
 import { TravelTypes } from '../components/homecomp/TravelTypes';
@@ -13,7 +11,7 @@ import { Footer } from '../components/Footer';
 
 
 interface ContinentProps {
-    slugs: string[];
+    uid: string;
     continent_name: string;
     continent_subtitle: string;
     continent_banner_image: string;
@@ -77,7 +75,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const Allcontinents = response.map(continent => {
 
     return {
-      slugs: continent.slugs,
+      uid: continent.uid,
       continent_name: continent.data.continent_name,
       continent_subtitle: continent.data.continent_subtitle,
       continent_banner_image: continent.data.continent_banner_image.url,

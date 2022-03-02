@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 interface ContinentProps {
-    slugs: string[];
+    uid: string;
     continent_name: string;
     continent_subtitle: string;
     continent_banner_image: string;
@@ -37,7 +37,7 @@ export function Slides({ Allcontinents }: SlidesProps) {
             { Allcontinents.map( continent => {
                 return (
                     <SwiperSlide key={ continent.continent_name }>
-                        <Link href={`/continent/${continent.slugs[0]}`}>
+                        <Link href={`/continent/${continent.uid}`}>
 
                             <Flex
                                 bg={`linear-gradient(0deg, rgba(28, 20, 1, 0.35), rgba(28, 20, 1, 0.35)), url(${ continent.continent_banner_image })`}
@@ -49,6 +49,7 @@ export function Slides({ Allcontinents }: SlidesProps) {
                                 alignItems="center"
                                 justifyContent="center"
                                 color="white"
+                                cursor="pointer"
                             >
                                     <Heading
                                         as="h1"
