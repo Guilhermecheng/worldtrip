@@ -12,10 +12,10 @@ interface IParams extends ParsedUrlQuery {
 }
 
 interface ContinentProps {
-    continent_name: string;
-    continent_subtitle: string;
-    continent_main_image: string;
-    continent_banner_image: string;
+    continent_name?: string;
+    continent_subtitle?: string;
+    continent_main_image?: string;
+    continent_banner_image?: string;
     data: {
         continent_information: {
             type: string;
@@ -28,7 +28,7 @@ interface ContinentProps {
             country_flag: string;
             city_name: string;
             city_country: string;
-        }[]
+        }[] | null;
     }
 }
 
@@ -38,7 +38,7 @@ export default function Continent({
     data,
 }: ContinentProps) {
 
-    console.log(continent_main_image)
+    console.log(data)
 
     return (
         <Flex
@@ -132,15 +132,22 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     try {
         const response = await Prismic.getByUID('continent', String(slug));
-    
-        const cities = response.data.cities.map((city: any) => {
-            return {
-                city_banner_image: city.city_banner_image.url,
-                country_flag: city.country_flag.url,
-                city_name: city.city_name,
-                city_country: city.city_country,
-            }
-        })
+
+        // if API is incomplete, and has no cities, this will prevent it from breaking
+        let cities: any[] | null = [];
+        if(response.data.cities[0].city_name) {
+            cities = response.data.cities.map((city: any) => {
+                if(city.city_name) {}
+                return {
+                    city_banner_image: city.city_banner_image.url,
+                    country_flag: city.country_flag.url,
+                    city_name: city.city_name,
+                    city_country: city.city_country,
+                }
+            })
+        } else {
+            cities = null;
+        }
     
         return {
             props: {
@@ -158,6 +165,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         }
         
     } catch(error) {
+        console.log(error)
         throw error
     }
 }
