@@ -49,7 +49,7 @@ export default function Continent({
 
             <Flex
                 h="31.25rem"
-                w="100vw"
+                w="100%"
                 bg={`linear-gradient(0deg, rgba(28, 20, 1, 0.35), rgba(28, 20, 1, 0.35)), url(${ continent_main_image })`}
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
@@ -92,20 +92,71 @@ export default function Continent({
                     <Grid
                         templateColumns="repeat(3, 1fr)"
                     >
-                        <Box>
-                            <Text>{ data.number_of_countries }</Text>
-                            <Text>países</Text>
-                        </Box>
+                        <Flex
+                            direction="column"
+                            alignItems="center"
+                            justifyContent="center"
+                        >
+                            <Heading
+                                as="h1"
+                                color="yellow.400"
+                                fontSize="5xl"
+                                fontWeight="semibold"
+                            >
+                                { data.number_of_countries }
+                            </Heading>
+                            <Text
+                                fontWeight="semibold"
+                                color="gray.600"
+                                fontSize="2xl"
+                            >
+                                países
+                            </Text>
+                        </Flex>
 
-                        <Box>
-                            <Text>{ data.number_of_languages }</Text>
-                            <Text>línguas</Text>
-                        </Box>
+                        <Flex
+                            direction="column"
+                            alignItems="center"
+                            justifyContent="center"
+                        >
+                            <Heading
+                                as="h1"
+                                color="yellow.400"
+                                fontSize="5xl"
+                                fontWeight="semibold"
+                            >
+                                { data.number_of_languages }
+                            </Heading>
+                            <Text
+                                fontWeight="semibold"
+                                color="gray.600"
+                                fontSize="2xl"
+                            >
+                                línguas
+                            </Text>
+                        </Flex>
 
-                        <Box>
-                            <Text>{ 12 }</Text>
-                            <Text>cidades 100+</Text>
-                        </Box>
+                        <Flex
+                            direction="column"
+                            alignItems="center"
+                            justifyContent="center"
+                        >
+                            <Heading
+                                as="h1"
+                                color="yellow.400"
+                                fontSize="5xl"
+                                fontWeight="semibold"
+                            >
+                                { 12 }
+                            </Heading>
+                            <Text
+                                fontWeight="semibold"
+                                color="gray.600"
+                                fontSize="2xl"
+                            >
+                                cidades 100+
+                            </Text>
+                        </Flex>
                     </Grid>
                 </Grid>
 

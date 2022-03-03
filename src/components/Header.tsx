@@ -18,7 +18,7 @@ export default function Header() {
 
     return (
         <Flex
-            w="100vw"
+            w="100%"
             h={[50, 100]}
             bg="white"
             alignItems="center"

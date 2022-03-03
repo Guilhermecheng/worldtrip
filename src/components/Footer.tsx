@@ -13,7 +13,8 @@ export function Footer() {
             <Divider
                 maxWidth="90px"
                 borderColor="gray.600"
-                borderWidth="1px"
+                borderBottomWidth="3px"
+                opacity="0.8"
             />
 
             <Heading

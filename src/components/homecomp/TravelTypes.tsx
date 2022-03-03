@@ -70,7 +70,7 @@ export function TravelTypes({ isMobile }: TravelTypesProps) {
                                     mr="2"
                                     mb="0"
                                 >
-                                    <Icon as={ GoPrimitiveDot } color="#FFBA08"  />
+                                    <Icon as={ GoPrimitiveDot } color="yellow.400"  />
                                 </Flex>
                             ) : (
                                 <Flex

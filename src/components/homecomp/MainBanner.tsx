@@ -11,7 +11,7 @@ export function MainBanner({ isMobile }: MainBannerProps) {
 
     return (
         <Flex
-            w="100vw"
+            w="100%"
             h={{md: "335px", base: "200px"}}
             backgroundImage="url('/images/Background.svg')"
             backgroundPosition="center"

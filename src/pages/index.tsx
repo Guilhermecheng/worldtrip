@@ -48,7 +48,8 @@ export default function Home({ Allcontinents }: HomeProps): JSX.Element  {
       <Divider
         maxWidth="90px"
         borderColor="gray.600"
-        borderWidth="1px"
+        borderBottomWidth="3px"
+        opacity="0.8"
       />
 
       <ContinentsSlides isMobile={ isMobile } Allcontinents={ Allcontinents } />
