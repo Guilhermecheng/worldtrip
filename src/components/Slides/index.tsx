@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 
 import Link from 'next/link';
 
-import { Flex, Heading, Text } from '@chakra-ui/react';
+import { Flex, Heading } from '@chakra-ui/react';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

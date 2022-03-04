@@ -1,5 +1,6 @@
 import { Box, Flex, useBreakpointValue } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 
 import Logo from '../../public/images/Logo.svg';
 
@@ -24,7 +25,11 @@ export default function Header() {
             alignItems="center"
             justifyContent="center"
         >
-                <Image src={ Logo } height={ imgHeight } alt="Worldtrip" />
+            <Link href="/">
+                <Box as="span" cursor="pointer">
+                    <Image src={ Logo } height={ imgHeight } alt="Worldtrip" />
+                </Box>
+            </Link>
         </Flex>
     )
 }

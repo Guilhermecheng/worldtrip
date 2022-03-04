@@ -2,12 +2,13 @@ import { Flex, Divider, useBreakpointValue } from '@chakra-ui/react';
 import type { GetStaticProps } from 'next'
 import Header from '../components/Header';
 
+import { getPrismicClient } from '../services/prismic';
+
 import { MainBanner } from '../components/homecomp/MainBanner';
 import { TravelTypes } from '../components/homecomp/TravelTypes';
 import { ContinentsSlides } from '../components/homecomp/ContinentsSlides';
-
-import { getPrismicClient } from '../services/prismic';
 import { Footer } from '../components/Footer';
+
 
 
 interface ContinentProps {

@@ -1,4 +1,4 @@
-import { Flex, Icon, useBreakpointValue, Text, Box } from "@chakra-ui/react";
+import { Flex, Icon, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
 import vidanoturna from '../../../public/images/vidanoturna.svg';

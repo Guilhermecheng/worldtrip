@@ -1,21 +1,24 @@
 import { GetStaticProps } from "next";
-import { Box, Flex, Heading, Text, Grid } from "@chakra-ui/react";
-
+import { Box, Flex } from "@chakra-ui/react";
 import { ParsedUrlQuery } from 'querystring'
-import { Footer } from "../../components/Footer";
+
 import { getPrismicClient } from "../../services/prismic";
-import Image from "next/image";
+
 import Header from "../../components/Header";
+import { SlugBanner } from "../../components/slugcomp/SlugBanner";
+import { ContinentInfo } from "../../components/slugcomp/ContinentInfo";
+import { SlugCities } from "../../components/slugcomp/SlugCities";
+import { Footer } from "../../components/Footer";
 
 interface IParams extends ParsedUrlQuery {
     slug: string
 }
 
 interface ContinentProps {
-    continent_name?: string;
-    continent_subtitle?: string;
-    continent_main_image?: string;
-    continent_banner_image?: string;
+    continent_name: string;
+    continent_subtitle: string;
+    continent_main_image: string;
+    continent_banner_image: string;
     data: {
         continent_information: {
             type: string;
@@ -39,6 +42,7 @@ export default function Continent({
 }: ContinentProps) {
 
     console.log(data)
+    let city_count = data.cities?.length;
 
     return (
         <Flex
@@ -46,121 +50,17 @@ export default function Continent({
             alignItems="center"
         >
             <Header />
-
-            <Flex
-                h="31.25rem"
-                w="100%"
-                bg={`linear-gradient(0deg, rgba(28, 20, 1, 0.35), rgba(28, 20, 1, 0.35)), url(${ continent_main_image })`}
-                backgroundPosition="center"
-                backgroundRepeat="no-repeat"
-                backgroundSize="cover"
-                alignItems="center"
-                justifyContent="center"
-            >
-                <Flex
-                    w="100%"
-                    h="80%"
-                    maxWidth={1160}
-                    // justifyContent="flex-start"
-                    alignItems="end"
-                >
-                    <Heading
-                        as="h1"
-                        color="white"
-                        fontSize="5xl"
-                    >
-                        { continent_name }
-                    </Heading>
-                </Flex>
-            </Flex>
+            <SlugBanner 
+                continent_name={ continent_name }
+                continent_main_image={ continent_main_image }
+            />
 
             <Box
                 maxWidth={1160}
                 my="20"
-
             >
-                <Grid
-                    templateColumns={{ md: "6fr 5fr", base:  "1fr"}}
-                    gridGap="16"
-                >
-                    <Flex>
-                        <Text>
-                            { data.continent_information[0].text }
-                        </Text>
-                    </Flex>
-
-                    <Grid
-                        templateColumns="repeat(3, 1fr)"
-                    >
-                        <Flex
-                            direction="column"
-                            alignItems="center"
-                            justifyContent="center"
-                        >
-                            <Heading
-                                as="h1"
-                                color="yellow.400"
-                                fontSize="5xl"
-                                fontWeight="semibold"
-                            >
-                                { data.number_of_countries }
-                            </Heading>
-                            <Text
-                                fontWeight="semibold"
-                                color="gray.600"
-                                fontSize="2xl"
-                            >
-                                países
-                            </Text>
-                        </Flex>
-
-                        <Flex
-                            direction="column"
-                            alignItems="center"
-                            justifyContent="center"
-                        >
-                            <Heading
-                                as="h1"
-                                color="yellow.400"
-                                fontSize="5xl"
-                                fontWeight="semibold"
-                            >
-                                { data.number_of_languages }
-                            </Heading>
-                            <Text
-                                fontWeight="semibold"
-                                color="gray.600"
-                                fontSize="2xl"
-                            >
-                                línguas
-                            </Text>
-                        </Flex>
-
-                        <Flex
-                            direction="column"
-                            alignItems="center"
-                            justifyContent="center"
-                        >
-                            <Heading
-                                as="h1"
-                                color="yellow.400"
-                                fontSize="5xl"
-                                fontWeight="semibold"
-                            >
-                                { 12 }
-                            </Heading>
-                            <Text
-                                fontWeight="semibold"
-                                color="gray.600"
-                                fontSize="2xl"
-                            >
-                                cidades 100+
-                            </Text>
-                        </Flex>
-                    </Grid>
-                </Grid>
-
-
+                <ContinentInfo data={ data } cityCount={ city_count } />
+                <SlugCities data={ data } />
             </Box>
 
             <Footer />
