@@ -57,7 +57,7 @@ export default function Continent({
 
             <Box
                 maxWidth={1160}
-                my="20"
+                my={{ base: '10', lg: "20" }}
             >
                 <ContinentInfo data={ data } cityCount={ city_count } />
                 <SlugCities data={ data } />

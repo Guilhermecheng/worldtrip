@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 
 interface SlugCitiesProps {
     data: {
@@ -20,38 +20,64 @@ interface SlugCitiesProps {
 export function SlugCities({ data }: SlugCitiesProps) {
     return (
         <Box
-            my="20"
+            mt={{ md: "20", base: "10" }}
         >
             <Flex w="100%">
-                <Heading as="h1" color="gray.600" fontSize="4xl" fontWeight="semibold">Cidades +100</Heading>
+                <Heading 
+                    as="h1" 
+                    color="gray.600" 
+                    fontSize={{ md: "4xl", base: "2xl" }}
+                    fontWeight="semibold"
+                    mb={{ md: "12", base: "6" }}
+                    px={{ lg: "4", base: "8" }}
+                >
+                    Cidades +100
+                </Heading>
             </Flex>
 
-            <Flex>
+            <Grid 
+                templateColumns={ data.cities? { lg: 'repeat(4, 1fr)', base: '1fr' }: '1fr' } 
+                gap={10}
+                px={{ lg: '4', base: "calc(40px + 5vw)" }}
+                w="100%"
+                justifyContent="center"
+                alignItems="center"
+            >
                 {
                     data.cities ? (
                         data.cities.map(city => {
                             return (
                                 <Box
                                     border="1px solid #FFBA08"
+                                    borderRadius={6}
                                 >
                                     <Box
-                                        w="300px"
-                                        h="300px"
+                                        w="100%"
+                                        h="44"
                                         backgroundImage={`url(${ city.city_banner_image })`}
                                         backgroundPosition="center"
                                         backgroundSize="cover"
                                         backgroundRepeat="no-repeat"
+                                        borderTopRadius={6}
                                     ></Box>
 
                                     <Flex
-
+                                        justifyContent="space-between"
+                                        p="6"
                                     >
                                         <Box color="gray.600">
-                                            <Heading>
+                                            <Heading
+                                                as="h1"
+                                                fontSize="xl"
+                                                fontWeight="bold"
+                                                mb="3"
+                                            >
                                                 { city.city_name }
                                             </Heading>
 
-                                            <Text>
+                                            <Text
+                                                fontSize="md"
+                                            >
                                                 { city.city_country }
                                             </Text>
 
@@ -65,6 +91,7 @@ export function SlugCities({ data }: SlugCitiesProps) {
                                             backgroundPosition="center"
                                             backgroundSize="cover"
                                             backgroundRepeat="no-repeat"
+                                            borderRadius={30}
                                         ></Box>
 
                                     </Flex>
@@ -89,7 +116,7 @@ export function SlugCities({ data }: SlugCitiesProps) {
                         </Flex>
                     )
                 }
-            </Flex>
+            </Grid>
         </Box>
     )
 }

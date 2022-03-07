@@ -45,7 +45,7 @@ export function Slides({ Allcontinents }: SlidesProps) {
                                 backgroundRepeat="no-repeat"
                                 backgroundSize="cover"
                                 direction="column"
-                                h="400px"
+                                h={{ sm: '400px', base: '250px' }}
                                 alignItems="center"
                                 justifyContent="center"
                                 color="white"
@@ -53,7 +53,7 @@ export function Slides({ Allcontinents }: SlidesProps) {
                             >
                                     <Heading
                                         as="h1"
-                                        fontSize="5xl"
+                                        fontSize={{ sm: '5xl', base: '2xl' }}
                                     >
                                         { continent.continent_name }
                                     </Heading>
@@ -61,8 +61,8 @@ export function Slides({ Allcontinents }: SlidesProps) {
                                     <Heading
                                         as="h3"
                                         color="gray.300"
-                                        fontSize="2xl"
-                                        mt="4"
+                                        fontSize={{ sm: '2xl', base: 'md' }}
+                                        mt={{ md: '4', base: '1' }}
                                     >
                                         { continent.continent_subtitle }
                                     </Heading>

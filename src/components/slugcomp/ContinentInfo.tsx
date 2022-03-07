@@ -21,12 +21,13 @@ interface ContinentInfoProps {
 export function ContinentInfo({ data, cityCount }: ContinentInfoProps) {
     return (
         <Grid
-            templateColumns={{ md: "6fr 5fr", base:  "1fr"}}
-            gridGap="16"
+            templateColumns={{ lg: "6fr 5fr", base:  "1fr"}}
+            gridGap={{ lg: "16", base: "10" }}
+            px={{ lg: "4", base: "10" }}
         >
             <Flex>
                 <Text
-                    fontSize="2xl"
+                    fontSize={{ lg: "2xl", base:  "lg"}}
                     color="gray.600"
                     align="justify"
                 >
@@ -36,6 +37,7 @@ export function ContinentInfo({ data, cityCount }: ContinentInfoProps) {
 
             <Grid
                 templateColumns="repeat(3, 1fr)"
+                w='100%'
             >
                 <Flex
                     direction="column"
@@ -45,7 +47,7 @@ export function ContinentInfo({ data, cityCount }: ContinentInfoProps) {
                     <Heading
                         as="h1"
                         color="yellow.400"
-                        fontSize="5xl"
+                        fontSize={{ lg: "5xl", md: "3xl", base:  "2xl"}}
                         fontWeight="semibold"
                     >
                         { data.number_of_countries }
@@ -53,7 +55,8 @@ export function ContinentInfo({ data, cityCount }: ContinentInfoProps) {
                     <Text
                         fontWeight="semibold"
                         color="gray.600"
-                        fontSize="2xl"
+                        fontSize={{ lg: "2xl", base:  "md"}}
+                        textAlign="center"
                     >
                         países
                     </Text>
@@ -67,7 +70,7 @@ export function ContinentInfo({ data, cityCount }: ContinentInfoProps) {
                     <Heading
                         as="h1"
                         color="yellow.400"
-                        fontSize="5xl"
+                        fontSize={{ lg: "5xl", md: "3xl", base:  "2xl"}}
                         fontWeight="semibold"
                     >
                         { data.number_of_languages }
@@ -75,7 +78,8 @@ export function ContinentInfo({ data, cityCount }: ContinentInfoProps) {
                     <Text
                         fontWeight="semibold"
                         color="gray.600"
-                        fontSize="2xl"
+                        fontSize={{ lg: "2xl", base:  "md"}}
+                        textAlign="center"
                     >
                         línguas
                     </Text>
@@ -89,7 +93,7 @@ export function ContinentInfo({ data, cityCount }: ContinentInfoProps) {
                     <Heading
                         as="h1"
                         color="yellow.400"
-                        fontSize="5xl"
+                        fontSize={{ lg: "5xl", md: "3xl", base:  "2xl"}}
                         fontWeight="semibold"
                     >
                         { cityCount ? cityCount : 0 }
@@ -97,7 +101,8 @@ export function ContinentInfo({ data, cityCount }: ContinentInfoProps) {
                     <Text
                         fontWeight="semibold"
                         color="gray.600"
-                        fontSize="2xl"
+                        fontSize={{ lg: "2xl", base:  "md"}}
+                        textAlign="center"
                     >
                         cidades +100
                     </Text>

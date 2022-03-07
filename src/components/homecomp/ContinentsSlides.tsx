@@ -27,7 +27,7 @@ export function ContinentsSlides({ isMobile, Allcontinents }: ContinentsSlidesPr
             <Heading 
                 as="h1" 
                 fontWeight="semibold"
-                fontSize={["2xl", "4xl"]}
+                fontSize={{ md: '4xl', sm: '2xl', base: 'xl' }}
             >
                 Vamos nessa?
             </Heading>
@@ -35,7 +35,7 @@ export function ContinentsSlides({ isMobile, Allcontinents }: ContinentsSlidesPr
             <Heading 
                 as="h1" 
                 fontWeight="semibold"
-                fontSize={["2xl", "4xl"]}
+                fontSize={{ md: '4xl', sm: '2xl', base: 'xl' }}
             >
                 Então escolha seu continente
             </Heading>

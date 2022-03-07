@@ -8,7 +8,7 @@ interface SlugBannerProps {
 export function SlugBanner({ continent_name, continent_main_image }: SlugBannerProps) {
     return (
         <Flex
-            h="31.25rem"
+            h={{ base: "10em", lg: "31.2em" }}
             w="100%"
             bg={`linear-gradient(0deg, rgba(28, 20, 1, 0.35), rgba(28, 20, 1, 0.35)), url(${ continent_main_image })`}
             backgroundPosition="center"
@@ -21,13 +21,15 @@ export function SlugBanner({ continent_name, continent_main_image }: SlugBannerP
                 w="100%"
                 h="80%"
                 maxWidth={1160}
-                // justifyContent="flex-start"
-                alignItems="end"
+                justifyContent={{ base: "center", lg: "flex-start" }}
+                alignItems={{ base: "center", lg: "end" }}
             >
                 <Heading
                     as="h1"
                     color="white"
-                    fontSize="5xl"
+                    fontSize={{ base: "3xl", lg: "5xl" }}
+                    px={{ lg: "4", base: "8" }}
+
                 >
                     { continent_name }
                 </Heading>
