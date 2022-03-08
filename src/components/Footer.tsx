@@ -22,6 +22,7 @@ export function Footer() {
                 fontSize={["md", "lg"]}
                 color="gray.600"
                 pt="8"
+                textAlign="center"
             >
                 Worldtrip 2022 - Todos os direitos reservados
             </Heading>
