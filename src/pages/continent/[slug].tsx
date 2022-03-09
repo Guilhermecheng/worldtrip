@@ -41,7 +41,6 @@ export default function Continent({
     data,
 }: ContinentProps) {
 
-    console.log(data)
     let city_count = data.cities?.length;
 
     return (
@@ -116,7 +115,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
         }
         
     } catch(error) {
-        console.log(error)
         throw error
     }
 }

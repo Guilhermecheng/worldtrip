@@ -43,7 +43,6 @@ const travelTypeImages = [
 ]
 
 export function TravelTypes({ isMobile }: TravelTypesProps) {
-    console.log(`essa porra é ${isMobile}`)
 
     return (
         <Flex

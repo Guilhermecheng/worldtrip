@@ -1,4 +1,6 @@
-import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Text, Icon, Tooltip } from "@chakra-ui/react";
+import { FiInfo } from "react-icons/fi";
+
 
 interface SlugCitiesProps {
     data: {
@@ -22,17 +24,31 @@ export function SlugCities({ data }: SlugCitiesProps) {
         <Box
             mt={{ md: "20", base: "10" }}
         >
-            <Flex w="100%">
+            <Flex 
+                w="100%" 
+                alignItems='center' 
+                mb={{ md: "12", base: "6" }}
+                px={{ lg: "4", base: "8" }}
+            >
                 <Heading 
                     as="h1" 
                     color="gray.600" 
                     fontSize={{ md: "4xl", base: "2xl" }}
                     fontWeight="semibold"
-                    mb={{ md: "12", base: "6" }}
-                    px={{ lg: "4", base: "8" }}
+                    mr="2" 
                 >
                     Cidades +100
                 </Heading>
+                <Tooltip 
+                    hasArrow
+                    bg='gray.600' 
+                    label='Cidades entre às 100 cidades mais visitadas do mundo' 
+                    placement='right'
+                >
+                    <Box as="span">
+                        <Icon as={ FiInfo } fontSize="20" color="gray.400" opacity="50%" />
+                    </Box>
+                </Tooltip>
             </Flex>
 
             <Grid 

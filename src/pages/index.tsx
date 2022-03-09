@@ -28,11 +28,6 @@ export default function Home({ Allcontinents }: HomeProps): JSX.Element  {
       base: true,
       md: false,
   })
-
-  console.log("reiniciei")
-
-  
-  console.log(Allcontinents)
   
   return (
     <Flex
@@ -73,7 +68,7 @@ export const getStaticProps: GetStaticProps = async () => {
     pageSize: 10,
   })
 
-  console.log(response)
+  // console.log(response)
   const Allcontinents = response.map(continent => {
 
     return {
@@ -83,8 +78,6 @@ export const getStaticProps: GetStaticProps = async () => {
       continent_banner_image: continent.data.continent_banner_image.url,
     }
   })
-  console.log(Allcontinents)
-
 
   return {
     props: {
