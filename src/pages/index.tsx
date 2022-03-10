@@ -34,11 +34,8 @@ export default function Home({ Allcontinents }: HomeProps): JSX.Element  {
       direction="column"
       alignItems="center"
     >
-      {/* Header mobile props are different (breakpointvalue is sm) */}
       <Header /> 
-
       <MainBanner isMobile={ isMobile }  />
-
       <TravelTypes isMobile={ isMobile }  />
       
       <Divider
@@ -49,7 +46,6 @@ export default function Home({ Allcontinents }: HomeProps): JSX.Element  {
       />
 
       <ContinentsSlides isMobile={ isMobile } Allcontinents={ Allcontinents } />
-
       <Footer />
     </Flex>
 
@@ -61,16 +57,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
   const response = await prismic.getAllByType("continent", {
-    // predicates: [
-    //   Prismic.predicate.at("my.continent.type", "continent"),      
-    // ],    
-    // fetchLinks: ["continent.continent_name", "continent.continent_main_image"],
     pageSize: 10,
   })
 
-  // console.log(response)
-  const Allcontinents = response.map(continent => {
+  // put response in alphabetical order by continent name
+  const responseSorted = response.sort((a, b) => a.data.continent_name.localeCompare(b.data.continent_name));
 
+  // console.log(response)
+  const Allcontinents = responseSorted.map(continent => {
     return {
       uid: continent.uid,
       continent_name: continent.data.continent_name,
