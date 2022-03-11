@@ -106,6 +106,9 @@ Swiper is used for Continent banner slider:
 <br/>
 <p align="center" style="font-weight:700">Web and mobile sliders</p>
 
+More in:<br/>
+https://swiperjs.com/
+
 ### Prismic
 Prismic is used as a database for continents and cities throughout the website. It helps, along with Next.js, to dynamically generate the continent page, using each document uid as a slug for Next.
 
