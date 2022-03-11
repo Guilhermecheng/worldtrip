@@ -112,7 +112,102 @@ https://swiperjs.com/
 ## Prismic
 Prismic is used as a database for continents and cities throughout the website. It helps, along with Next.js, to dynamically generate the continent page, using each document uid as a slug for Next.
 
-![image](https://user-images.githubusercontent.com/62719629/157978869-0cb9790f-b3a7-4db5-bd99-b593e3f4f938.png)
+### In Prismic:
 
-![image](https://user-images.githubusercontent.com/62719629/157979008-737ef5b7-c2c7-4c36-a46e-974a112a2231.png)
+<div align="center">
+<img src="https://user-images.githubusercontent.com/62719629/157978869-0cb9790f-b3a7-4db5-bd99-b593e3f4f938.png" width="800px" />
+</div>
+<br/>
+All info is fetched using getStaticProps function from Next:
 
+### In index.tsx
+```javascript
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const response = await prismic.getAllByType("continent", {
+    pageSize: 10,
+  })
+
+  // put response in alphabetical order by continent name
+  const responseSorted = response.sort((a, b) => a.data.continent_name.localeCompare(b.data.continent_name));
+
+  // console.log(response)
+  const Allcontinents = responseSorted.map(continent => {
+    return {
+      uid: continent.uid,
+      continent_name: continent.data.continent_name,
+      continent_subtitle: continent.data.continent_subtitle,
+      continent_banner_image: continent.data.continent_banner_image.url,
+    }
+  })
+
+  return {
+    props: {
+      Allcontinents,
+    }
+  }
+}
+```
+
+**Resulting in:**
+
+![image](https://user-images.githubusercontent.com/62719629/157987457-0f11583e-c1b9-44cd-9c3c-a9669fd7205b.png)
+
+<p align="center" style="font-weight:700">Image, name and legend of each banner comes from Prismic API</p>
+
+
+### In [slug].tsx
+```javascript
+export const getStaticProps: GetStaticProps = async (context) => {
+    const { slug } = context.params as IParams 
+    const Prismic = getPrismicClient();
+
+    try {
+        const response = await Prismic.getByUID('continent', String(slug));
+
+        // if API is incomplete, and has no cities, this will prevent it from breaking
+        let cities: any[] | null = [];
+        if(response.data.cities[0].city_name) {
+            cities = response.data.cities.map((city: any) => {
+                if(city.city_name) {}
+                return {
+                    city_banner_image: city.city_banner_image.url,
+                    country_flag: city.country_flag.url,
+                    city_name: city.city_name,
+                    city_country: city.city_country,
+                }
+            })
+        } else {
+            cities = null;
+        }
+    
+        return {
+            props: {
+                continent_name: response.data.continent_name,
+                continent_subtitle: response.data.continent_subtitle,
+                continent_main_image: response.data.continent_main_image.url,
+                continent_banner_image: response.data.continent_banner_image.url,
+                data: {
+                    continent_information: response.data.continent_information,
+                    number_of_countries: response.data.number_of_countries,
+                    number_of_languages: response.data.number_of_languages,
+                    cities,
+                }
+            }
+        }
+        
+    } catch(error) {
+        throw error
+    }
+}
+```
+
+**Resulting in:**
+
+<div style="display: flex;" align="center" justify="space-between">
+  <img src="https://user-images.githubusercontent.com/62719629/157987509-d3d61e90-1709-410a-92bd-0f7d47c91046.png" /> &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://user-images.githubusercontent.com/62719629/157987894-cca25258-a445-4f35-9d7e-8516a3d517ab.png" />
+</div>
+<br/>
+<p align="center" style="font-weight:700">Almost all information showed in slug page comes from Prismic API</p>
