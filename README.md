@@ -211,3 +211,5 @@ export const getStaticProps: GetStaticProps = async (context) => {
 </div>
 <br/>
 <p align="center" style="font-weight:700">Almost all information showed in slug page comes from Prismic API</p>
+
+### Thaks all folks, thanks!
