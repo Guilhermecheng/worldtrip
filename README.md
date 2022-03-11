@@ -8,7 +8,7 @@ Come with to meet the most visited cities in the world!
   
 </div>
 
-### Objective
+## Objective
 This website was created as a training exercise for React framework, along with Typescript, Next.js, Chakra-ui and the use of Prismic API.<br/>
 It's goal as a study case was to focus on the use declarative styles, in that case Chakra-ui, and page responsiveness, having its stylization adapted for mobiles as well. 
 
@@ -16,7 +16,7 @@ It's goal as a study case was to focus on the use declarative styles, in that ca
   <img src="https://user-images.githubusercontent.com/62719629/157968449-ea80bc09-898c-4d81-9029-715dce088962.png" />
 </div>
 
-### Chakra-ui usage
+## Chakra-ui usage
 Chakra-ui's objective is to be a declarative slyling framework for React. All HTML tags are transformed in components, and it can have its styling as component properties. As an example, here's the Header component (without back arrow):
 
 ```HTML
@@ -92,7 +92,7 @@ Tooltip for extra info in continent page. It's info comes from the label propert
 <img src="https://user-images.githubusercontent.com/62719629/157975831-fe53156e-076b-42d2-9489-138cb3f0887f.png" /> <br/> Fade component is used to get arrow a fade out effect when clicked
 </div>
 
-### Swiper
+## Swiper
 Swiper is used for Continent banner slider:
 
 <div style="display: flex; width='100%'">
@@ -109,7 +109,7 @@ Swiper is used for Continent banner slider:
 More in:<br/>
 https://swiperjs.com/
 
-### Prismic
+## Prismic
 Prismic is used as a database for continents and cities throughout the website. It helps, along with Next.js, to dynamically generate the continent page, using each document uid as a slug for Next.
 
 ![image](https://user-images.githubusercontent.com/62719629/157978869-0cb9790f-b3a7-4db5-bd99-b593e3f4f938.png)
