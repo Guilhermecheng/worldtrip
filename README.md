@@ -95,12 +95,12 @@ Tooltip for extra info in continent page. It's info comes from the label propert
 ## Swiper
 Swiper is used for Continent banner slider:
 
-<div style="display: flex; width='100%'">
+<div style="display: flex;" align="center">
   <figure style="display: block;">
-    <img src="https://media.giphy.com/media/jaBU9IIsHwRg0mcfa4/giphy.gif" />
+    <img src="https://media.giphy.com/media/jaBU9IIsHwRg0mcfa4/giphy.gif" width="400px"  />
   </figure> &nbsp;
   <figure style="display: block;">
-    <img src="https://media.giphy.com/media/va5O1UbzESmxizj2SN/giphy.gif" />
+    <img src="https://media.giphy.com/media/va5O1UbzESmxizj2SN/giphy.gif" width="400px" />
    </figure>
 </div>
 <br/>
