@@ -95,6 +95,8 @@ Tooltip for extra info in continent page. It's info comes from the label propert
 ### Swiper
 Swiper is used for Continent banner slider:
 
+<img src="https://media.giphy.com/media/jaBU9IIsHwRg0mcfa4/giphy.gif" />    
+
 
 ### Prismic
 Prismic is used as a database for continents and cities throughout the website. It helps, along with Next.js, to dynamically generate the continent page, using each document uid as a slug for Next.
