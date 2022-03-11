@@ -66,6 +66,7 @@ export function SlugCities({ data }: SlugCitiesProps) {
                                 <Box
                                     border="1px solid #FFBA08"
                                     borderRadius={6}
+                                    key={ city.city_name }
                                 >
                                     <Box
                                         w="100%"

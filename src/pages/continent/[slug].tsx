@@ -72,7 +72,7 @@ export async function getStaticPaths() {
       paths: [],
       // Enable statically generating additional pages
       // For example: `/posts/3`
-      fallback: true,
+      fallback: 'blocking',
     }
   }
 

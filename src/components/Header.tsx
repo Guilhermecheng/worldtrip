@@ -15,7 +15,7 @@ export default function Header() {
 
     useEffect(() => {
         if(pathname != '/') onOpen();
-    }, [pathname])
+    }, [pathname, onOpen])
 
     let imgHeight = 46;
     let arrowSize = 30;
@@ -45,7 +45,7 @@ export default function Header() {
                     cursor="pointer"
                 >
                     <Fade in={ isOpen } onClick={ onClose }>
-                        <Link href='/'>
+                        <Link href='/' passHref>
                             <FiChevronLeft 
                                 size={ arrowSize }
                                 color="#47585B"
@@ -56,7 +56,7 @@ export default function Header() {
                 </Box>
             )}
             
-            <Link href="/">
+            <Link href="/" passHref>
                 <Box as="span" cursor="pointer">
                     <Image src={ Logo } height={ imgHeight } alt="Worldtrip" />
                 </Box>

@@ -37,7 +37,7 @@ export function Slides({ Allcontinents }: SlidesProps) {
             { Allcontinents.map( continent => {
                 return (
                     <SwiperSlide key={ continent.continent_name }>
-                        <Link href={`/continent/${continent.uid}`}>
+                        <Link href={`/continent/${continent.uid}`} passHref>
 
                             <Flex
                                 bg={`linear-gradient(0deg, rgba(28, 20, 1, 0.35), rgba(28, 20, 1, 0.35)), url(${ continent.continent_banner_image })`}
