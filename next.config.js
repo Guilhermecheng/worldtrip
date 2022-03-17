@@ -7,7 +7,8 @@ module.exports = {
   nextConfig,
   images: {
     loader: 'imgix',
-    path: 'http://localhost:3000/',
+    // path: 'http://localhost:3000/',
+    path: '/',
     domains: ['prismic.io', 'images.prismic.io']
   },
 }
