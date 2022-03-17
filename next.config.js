@@ -8,7 +8,7 @@ module.exports = {
   images: {
     loader: 'imgix',
     // path: 'http://localhost:3000/', // this path for svg use in dev mode
-    path: '/',
+    path: 'https://worldtrip-guilhermecheng.vercel.app',
     domains: ['prismic.io', 'images.prismic.io']
   },
 }
